@@ -13,7 +13,6 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-
         stage('Deploy') {
             steps {
                 // Add deployment steps here (e.g., deploy to a server)
