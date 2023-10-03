@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from the repository
-               git url: ''
+               git url: 'https://github.com/Manasa-devops/nikit-jenkins.git'
             }
         }
         stage('Build') {
