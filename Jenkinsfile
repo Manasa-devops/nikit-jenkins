@@ -1,30 +1,31 @@
-pipeline {
-    agent {
-        docker {
-            image 'maven:3.9.0'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('Checkout')
+        {
+            steps
+            {
+                // Checkout the code from the repository
+               git url: 'https://github.com/Manasa-devops/nikit-jenkins.git'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
+        stage('Build')
+        {
+            steps 
+            {
+               echo 'Build app'
+               sh 'mvn clean install' 
             }
         }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
+
+        stage('Deploy')
+        {
+            steps
+            {
+               echo 'Deploy app'
             }
-        }
-    }
+        }    
+    }                                                                                                                                                                 
 }
