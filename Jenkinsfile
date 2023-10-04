@@ -16,7 +16,7 @@ pipeline
             steps 
             {
                echo 'Build app'
-               sh 'deliver.sh' 
+               sh 'date' 
             }
         }
 
