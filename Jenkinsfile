@@ -1,22 +1,29 @@
-pipeline {
+pipeline
+{
     agent any
-    stages {
-        stage('Checkout') {
-            steps {
+    stages
+    {
+        stage('Checkout')
+        {
+            steps
+            {
                 // Checkout the code from the repository
-               git url: 'https://github.com/Manasa-devops/nikit-jenkins.git'
+               git url: ''
             }
         }
-        stage('Build') {
-            steps {
-                // Build the Maven project
-                sh 'mvn clean install'
+        stage('Build')
+        {
+            steps 
+            {
+               echo 'Build app'
             }
         }
-        stage('Deploy') {
-            steps {
-                // Add deployment steps here (e.g., deploy to a server)
-                sh 'echo "Deployment step"'
+
+        stage('Deploy')
+        {
+            steps
+            {
+               echo 'Deploy app'
             }
         }    
     }                                                                                                                                                                 
